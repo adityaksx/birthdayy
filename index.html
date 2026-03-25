@@ -5,184 +5,203 @@
 <!--[if gt IE 8]> <html> <![endif]-->
 <!--[if !IE]><!--><html lang="en"><!-- <![endif]-->
 <head>
-	<title>Happy Birthday</title>
-	<meta charset="UTF-8" />
-	<meta name="description" content="Happy Birthday">
-	<meta name="robots" content="index, follow" />
+    <title>Happy Birthday</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Happy Birthday">
+    <meta name="robots" content="index, follow" />
     <meta name="keywords" content="Birthday, Happy">
-    <!-- Strat of Facebook Meta -->
     <meta property="og:type" content="E-Greeting" />
     <meta property="og:image" content="favicon.ico" />
     <meta property="og:description" content="Wish you a very Happy Birthday">
-    <!-- End of Facebook Meta Tags -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link rel="stylesheet" type="text/css" href="loading.css">
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'> -->
-	<link rel="stylesheet/less" href="cake.less">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="loading.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet/less" href="cake.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
+
+    <!-- PostHog Analytics -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(s&&s.name&&(u=e[a=s.name]=[]),a=a||"posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return a!=="posthog"&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+        posthog.init('phc_GgaMmRzQPzGJ1LUtj6Y6Go7OCXn7Jp5qusfgV0uVw7h', {
+            api_host: 'https://us.i.posthog.com',
+            person_profiles: 'identified_only',
+            capture_pageview: true,
+            capture_pageleave: true,
+        });
+    </script>
 </head>
 
 <body>
-	<div class="loading"></div>
-	<audio class="song" controls loop>
+    <div class="loading"></div>
+    <audio class="song" controls loop>
         <source src="hbd.mp3"></source>
-	   Your browser isn't invited for super fun audio time.
+        Your browser isn't invited for super fun audio time.
     </audio>
     <div class="balloons text-center" id="b1">
-    	<h2 style="color:#F2B300;">K</h2>
+        <h2 style="color:#F2B300;">K</h2>
     </div>
-	<div class="balloons text-center" id="b3">
-    	<h2 style="color:#D14D39;">A</h2>
+    <div class="balloons text-center" id="b3">
+        <h2 style="color:#D14D39;">A</h2>
     </div>
-	<div class="balloons text-center" id="b4">
-    	<h2 style="color:#8FAD00;">V</h2>
+    <div class="balloons text-center" id="b4">
+        <h2 style="color:#8FAD00;">V</h2>
     </div>
-	<div class="balloons text-center" id="b5">
-    	<h2 style="color:#8377E4;">Y</h2>
+    <div class="balloons text-center" id="b5">
+        <h2 style="color:#8377E4;">Y</h2>
     </div>
     <div class="balloons text-center" id="b6">
-    	<h2 style="color:#99C96A;">🫂</h2>
+        <h2 style="color:#99C96A;">🫂</h2>
     </div>
     <div class="balloons text-center" id="b7">
-    	<h2 style="color:#20CFB4;">💗</h2>
+        <h2 style="color:#20CFB4;">💗</h2>
     </div>
 
     <img src="Balloon-Border.png" width="100%" class="balloon-border">
- 
 
-	<div class="container">
-		
-		<div class="row">
-			<div class="col-md-2 col-xs-2 bulb-holder">
-				<div class="bulb" id="bulb_yellow"></div>
-			</div>
-			<div class="col-md-2 col-xs-2 bulb-holder">
-				<div class="bulb" id="bulb_red"></div>
-			</div>
-			<div class="col-md-2 col-xs-2 bulb-holder">
-				<div class="bulb" id="bulb_blue"></div>
-			</div>
-			<div class="col-md-2 col-xs-2 bulb-holder">
-				<div class="bulb" id="bulb_green"></div>
-			</div>
-			<div class="col-md-2 col-xs-2 bulb-holder">
-				<div class="bulb" id="bulb_pink"></div>
-			</div>
-			<div class="col-md-2 col-xs-2 bulb-holder">
-				<div class="bulb" id="bulb_orange"></div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<img src="banner.png" class="bannar">
-			</div>
-		</div>
-		<div class="row cake-cover">
-			<div class="col-md-12 text-center">
-				<div class="cake">
-				  <div class="velas">
-				    <div class="fuego"></div>
-				    <div class="fuego"></div>
-				    <div class="fuego"></div>
-				    <div class="fuego"></div>
-				    <div class="fuego"></div>
-				  </div>
-				  <div class="cobertura"></div>
-				  <div class="bizcocho"></div>
-				</div>
-			</div>
-		</div>
-		<div class="row message">
-			<div class="col-md-12">
-				<p>Okay wait…</p>
-				<p>Before anything else, sun 👀</p>
-				<p>Today is not just another day.</p>
-				<p>It's YOUR day.</p>
-				<p>And that actually matters a lot 🫶</p>
-				<p>Another year added,</p>
-				<p>time really flies na?</p>
-				<p>Feels like kal hi we were talking nonsense 😂</p>
-				<p>A lot happened this year.</p>
-				<p>Some really good moments,</p>
-				<p>some confusing ones,</p>
-				<p>and some days where you just had to push through.</p>
-				<p>But you did.</p>
-				<p>Quietly.</p>
-				<p>Solidly.</p>
-				<p>And honestly,</p>
-				<p>I don't say this enough,</p>
-				<p>you deserve more credit than you give yourself.</p>
-				<p>You have this way of handling things.</p>
-				<p>Even when it's tough,</p>
-				<p>you still show up.</p>
-				<p>That's rare, bro.</p>
-				<p>Today is about you.</p>
-				<p>Your laugh.</p>
-				<p>Your chill vibe.</p>
-				<p>Your random bakchodi 😌</p>
-				<p>This little thing?</p>
-				<p>I made it just for you.</p>
-				<p>No big reason.</p>
-				<p>Bas dil se 💛</p>
-				<p>Thank you for being you.</p>
-				<p>For trusting me.</p>
-				<p>For sharing your thoughts.</p>
-				<p>For being there, always.</p>
-				<p>I hope this year is kinder to you.</p>
-				<p>Less overthinking.</p>
-				<p>More peace.</p>
-				<p>And moments that make you genuinely happy ✨</p>
-				<p>Chase what you want.</p>
-				<p>Take your time.</p>
-				<p>You don't have to rush anything.</p>
-				<p>And haan,</p>
-				<p>on days when things feel heavy,</p>
-				<p>just remember —</p>
-				<p>you don't have to deal with it alone.</p>
-				<p>Main hoon.</p>
-				<p>Always 🙂</p>
-				<p>Smile today.</p>
-				<p>Eat extra cake.</p>
-				<p>Enjoy properly.</p>
-				<p>Happy Birthday, Kavy 🔥🎂</p>
-			</div>
-		</div>
-		<div class="control-panel">
-			<div class="row">
-				<div class="text-center">
-					<button class="btn btn-primary" id="turn_on">Turn On Lights</button>
-					<button class="btn btn-primary" id="play">Play Music</button>
-					<button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
-					<button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
-					<button class="btn btn-primary" id="cake_fadein">Most Delicious Cake Ever</button>
-					<button class="btn btn-primary" id="light_candle"> Light Candle</button>
-					<button class="btn btn-primary" id="wish_message">Happy Birthday</button>
-					<button class="btn btn-primary" id="story">A message for you</button>
-					<!-- <button class="btn btn-primary" id="cake_cut">Lrt's Cut the Cake</button> -->
-				</div>
-			</div>
-			<!-- <div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div> -->
-		</div>
-
-
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-xs-2 bulb-holder">
+                <div class="bulb" id="bulb_yellow"></div>
+            </div>
+            <div class="col-md-2 col-xs-2 bulb-holder">
+                <div class="bulb" id="bulb_red"></div>
+            </div>
+            <div class="col-md-2 col-xs-2 bulb-holder">
+                <div class="bulb" id="bulb_blue"></div>
+            </div>
+            <div class="col-md-2 col-xs-2 bulb-holder">
+                <div class="bulb" id="bulb_green"></div>
+            </div>
+            <div class="col-md-2 col-xs-2 bulb-holder">
+                <div class="bulb" id="bulb_pink"></div>
+            </div>
+            <div class="col-md-2 col-xs-2 bulb-holder">
+                <div class="bulb" id="bulb_orange"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="banner.png" class="bannar">
+            </div>
+        </div>
+        <div class="row cake-cover">
+            <div class="col-md-12 text-center">
+                <div class="cake">
+                    <div class="velas">
+                        <div class="fuego"></div>
+                        <div class="fuego"></div>
+                        <div class="fuego"></div>
+                        <div class="fuego"></div>
+                        <div class="fuego"></div>
+                    </div>
+                    <div class="cobertura"></div>
+                    <div class="bizcocho"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row message">
+            <div class="col-md-12">
+                <p>Okay wait…</p>
+                <p>Before anything else, sun 👀</p>
+                <p>Today is not just another day.</p>
+                <p>It's YOUR day.</p>
+                <p>And that actually matters a lot 🫶</p>
+                <p>Another year added,</p>
+                <p>time really flies na?</p>
+                <p>Feels like kal hi we were talking nonsense 😂</p>
+                <p>A lot happened this year.</p>
+                <p>Some really good moments,</p>
+                <p>some confusing ones,</p>
+                <p>and some days where you just had to push through.</p>
+                <p>But you did.</p>
+                <p>Quietly.</p>
+                <p>Solidly.</p>
+                <p>And honestly,</p>
+                <p>I don't say this enough,</p>
+                <p>you deserve more credit than you give yourself.</p>
+                <p>You have this way of handling things.</p>
+                <p>Even when it's tough,</p>
+                <p>you still show up.</p>
+                <p>That's rare, bro.</p>
+                <p>Today is about you.</p>
+                <p>Your laugh.</p>
+                <p>Your chill vibe.</p>
+                <p>Your random bakchodi 😌</p>
+                <p>This little thing?</p>
+                <p>I made it just for you.</p>
+                <p>No big reason.</p>
+                <p>Bas dil se 💛</p>
+                <p>Thank you for being you.</p>
+                <p>For trusting me.</p>
+                <p>For sharing your thoughts.</p>
+                <p>For being there, always.</p>
+                <p>I hope this year is kinder to you.</p>
+                <p>Less overthinking.</p>
+                <p>More peace.</p>
+                <p>And moments that make you genuinely happy ✨</p>
+                <p>Chase what you want.</p>
+                <p>Take your time.</p>
+                <p>You don't have to rush anything.</p>
+                <p>And haan,</p>
+                <p>on days when things feel heavy,</p>
+                <p>just remember —</p>
+                <p>you don't have to deal with it alone.</p>
+                <p>Main hoon.</p>
+                <p>Always 🙂</p>
+                <p>Smile today.</p>
+                <p>Eat extra cake.</p>
+                <p>Enjoy properly.</p>
+                <p>Happy Birthday, Kavy 🔥🎂</p>
+            </div>
+        </div>
+        <div class="control-panel">
+            <div class="row">
+                <div class="text-center">
+                    <button class="btn btn-primary" id="turn_on">Turn On Lights</button>
+                    <button class="btn btn-primary" id="play">Play Music</button>
+                    <button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
+                    <button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
+                    <button class="btn btn-primary" id="cake_fadein">Most Delicious Cake Ever</button>
+                    <button class="btn btn-primary" id="light_candle">Light Candle</button>
+                    <button class="btn btn-primary" id="wish_message">Happy Birthday</button>
+                    <button class="btn btn-primary" id="story">A message for you</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="effect.js"></script>
+
+<!-- PostHog Step Tracking (runs after effect.js) -->
+<script>
+    var _phStepStart = Date.now();
+
+    function _phTrack(step, extra) {
+        var props = Object.assign({ step: step, time_since_open_sec: Math.round((Date.now() - _phStepStart) / 1000) }, extra || {});
+        posthog.capture('birthday_step', props);
+    }
+
+    $(document).ready(function () {
+        _phTrack('page_opened');
+
+        $('#turn_on').on('click',       function () { _phTrack('lights_on'); });
+        $('#play').on('click',          function () { _phTrack('music_played'); });
+        $('#bannar_coming').on('click', function () { _phTrack('banner_shown'); });
+        $('#balloons_flying').on('click', function () { _phTrack('balloons_flying'); });
+        $('#cake_fadein').on('click',   function () { _phTrack('cake_appeared'); });
+        $('#light_candle').on('click',  function () { _phTrack('candle_lit'); });
+        $('#wish_message').on('click',  function () { _phTrack('wish_message_seen'); });
+        $('#story').on('click',         function () { _phTrack('message_read', { reached_end: true }); });
+    });
+</script>
+
 </html>
