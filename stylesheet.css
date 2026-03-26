@@ -793,8 +793,8 @@ audio {
     position: fixed;
     display: none;
     left: 50%;
-    top: 530px;
-    margin-left: 0;
+    top: 50%;
+    margin-left: -150px;
     margin-top: -150px;
     width: 300px;
     height: 300px;
@@ -1185,8 +1185,8 @@ audio {
 		width: 200px;
 		height: 200px;
 		margin-left: -100px;
-		top: 380px;
-        margin-top: 0;
+		top: 50%;
+        margin-top: -100px;
 	}
 
 
@@ -1222,8 +1222,8 @@ audio {
 		width: 250px;
 		height: 250px;
 		margin-left: -125px;
-        top: 460px;
-		margin-top: 0px;
+        top: 50%;
+		margin-top: -125px;
 	}
 
     .control-panel {
@@ -1254,6 +1254,7 @@ audio {
 		height: 300px;
 		margin-left: -150px;
 		margin-top: -150px;
+        top: 50% ;
 	}
 
     .cake-cover {
