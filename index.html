@@ -39,7 +39,7 @@
 
 <body>
     <div class="loading"></div>
-    <audio class="song" controls loop>
+    <audio id="song" class="song" controls loop>
         <source src="hbd.mp3"></source>
         Your browser isn't invited for super fun audio time.
     </audio>
@@ -56,16 +56,17 @@
         <h2 style="color:#8377E4;">Y</h2>
     </div>
     <div class="balloons text-center" id="b5">
-        <h2 style="color:#FF6B6B;">🎉</h2>
+        <h2 style="color:#FF6B6B;">Y</h2>
     </div>
     <div class="balloons text-center" id="b6">
-        <h2 style="color:#99C96A;">🫂</h2>
+        <h2 style="color:#99C96A;">A</h2>
     </div>
     <div class="balloons text-center" id="b7">
         <h2 style="color:#20CFB4;">💗</h2>
     </div>
 
     <img src="Balloon-Border.png" width="100%" class="balloon-border">
+
 
     <div class="container">
         <div class="row">
@@ -96,15 +97,22 @@
         <div class="row cake-cover">
             <div class="col-md-12 text-center">
                 <div class="cake">
-                    <div class="velas">
-                        <div class="fuego"></div>
-                        <div class="fuego"></div>
-                        <div class="fuego"></div>
-                        <div class="fuego"></div>
-                        <div class="fuego"></div>
+                    <div class="plate"></div>
+
+                    <div class="layer layer-bottom"></div>
+                    <div class="layer layer-middle"></div>
+                    <div class="layer layer-top"></div>
+
+                    <div class="icing"></div>
+
+                    <div class="drip drip1"></div>
+                    <div class="drip drip2"></div>
+                    <div class="drip drip3"></div>
+
+                    <!-- KEEP your candle -->
+                    <div class="candle">
+                        <div class="flame"></div>
                     </div>
-                    <div class="cobertura"></div>
-                    <div class="bizcocho"></div>
                 </div>
             </div>
         </div>
@@ -177,6 +185,14 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="memory">
+        <img src="memory.png" alt="us">
+    </div>
+    <div class="memory-video">
+        <video id="bdayVideo" width="90%"  muted playsinline>
+            <source src="birthday.mp4" type="video/mp4">
+        </video>
     </div>
 </body>
 
