@@ -117,7 +117,7 @@ $(document).ready(function(){
     });
 
     $('#light_candle').click(function(){
-        $('.fuego').fadeIn('slow');
+        $('.flame').fadeIn('slow');
         $(this).fadeOut('slow').promise().done(function(){
             $('#wish_message').fadeIn('slow');
         });
@@ -162,6 +162,78 @@ $(document).ready(function(){
         });
     });
 
+    function startFinalSequence() {
+    // quick cinematic switch
+
+    // smooth but fast background change
+    $('body')
+        .removeClass('peach peach-after')
+        .css({
+            background: '#000',
+            transition: 'background 0.6s ease'
+        });
+
+    // quickly remove decorations
+    $('.balloons').fadeOut(600);
+    $('.bannar').fadeOut(600);
+        // 2. show image
+        setTimeout(() => {
+
+            $('.memory')
+                .css({
+                    transform: 'translate(-50%, -50%) scale(0.8)',
+                    opacity: 0,
+                    display: 'block'
+                })
+                .animate({ opacity: 1 }, 800);
+
+            setTimeout(() => {
+                $('.memory').css({
+                    transform: 'translate(-50%, -50%) scale(1)',
+                    transition: 'transform 1s ease'
+                });
+            }, 50);
+
+        }, 1000); // wait for fade + background transition
+
+        // 3. play 2nd music
+        let audio = document.getElementById("song");
+        audio.pause();
+        audio.src = "music2.mp3";
+        audio.load();
+        audio.play().catch(() => {
+            console.log("audio play blocked, user interaction required");
+        });
+
+        // ⏱ AFTER 30 sec
+        setTimeout(() => {
+
+            // stop music
+            audio.pause();
+
+            // hide image
+            $('.memory').fadeOut(1000);
+
+            // show video
+            $('.memory-video')
+                .css('opacity', 0)
+                .show()
+                .animate({ opacity: 1 }, 800);
+
+            let video = document.getElementById("bdayVideo");
+            video.muted = true;
+            video.play().then(() => {
+                video.muted = false;
+            });
+
+            // ⏱ AFTER VIDEO ENDS (optional auto cleanup)
+            video.onended = () => {
+                console.log("video finished, emotional damage delivered");
+            };
+
+        }, 30000); // 30 sec
+    }
+
     $('#story').click(function(){
         $(this).fadeOut('slow');
         $('.cake').fadeOut('fast').promise().done(function(){
@@ -173,9 +245,13 @@ $(document).ready(function(){
             $("p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
                 i = i + 1;
                 $("p:nth-child("+i+")").fadeIn('slow').delay(1000);
-                if(i == 50){
+                if(i >= 50){
                     $("p:nth-child(49)").fadeOut('slow').promise().done(function(){
-                        $('.cake').fadeIn('fast');
+                        // 💥 THIS WAS MISSING
+                        setTimeout(() => {
+                            startFinalSequence();
+                        }, 2000); // small delay after message ends
+
                     });
                 } else {
                     msgLoop(i);
