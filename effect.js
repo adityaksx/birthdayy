@@ -7,7 +7,6 @@ $(document).ready(function(){
     var vw;
     var balloonsFlying = false;
 
-    // Responsive spacing function
     function getBalloonSpacing() {
         var totalWidth = $(window).width();
         if (totalWidth >= 1200) {
@@ -19,22 +18,18 @@ $(document).ready(function(){
         }
     }
 
-    // ✅ NEW: Responsive top position — clears ribbon on all screens
     function getBalloonTop() {
         var w = $(window).width();
-        if (w >= 1200) return 240;   // Desktop
-        else if (w >= 768) return 220; // Tablet
-        else return 200;               // Mobile
+        if (w >= 1200) return 240;
+        else if (w >= 768) return 220;
+        else return 200;
     }
 
-    // Position balloons on resize
     $(window).resize(function(){
         if (balloonsFlying) return;
-
         vw = $(window).width() / 2;
         var spacing = getBalloonSpacing();
-        var bTop = getBalloonTop(); // ✅ FIXED
-
+        var bTop = getBalloonTop();
         $('#b1,#b4,#b5,#b7').stop();
         $('#b11').animate({top: bTop, left: vw - spacing.s1}, 500);
         $('#b22').animate({top: bTop, left: vw - spacing.s2}, 500);
@@ -81,71 +76,41 @@ $(document).ready(function(){
         });
     });
 
-    // Balloon flying loops
     function loopOne() {
         if (!balloonsFlying) return;
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b1').animate({left: randleft, bottom: randtop}, 10000, function(){ loopOne(); });
+        $('#b1').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopOne(); });
     }
-
     function loopTwo() {
         if (!balloonsFlying) return;
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b2').animate({left: randleft, bottom: randtop}, 10000, function(){ loopTwo(); });
+        $('#b2').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopTwo(); });
     }
-
     function loopThree() {
         if (!balloonsFlying) return;
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b3').animate({left: randleft, bottom: randtop}, 10000, function(){ loopThree(); });
+        $('#b3').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopThree(); });
     }
-
     function loopFour() {
         if (!balloonsFlying) return;
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b4').animate({left: randleft, bottom: randtop}, 10000, function(){ loopFour(); });
+        $('#b4').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopFour(); });
     }
-
     function loopFive() {
         if (!balloonsFlying) return;
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b5').animate({left: randleft, bottom: randtop}, 10000, function(){ loopFive(); });
+        $('#b5').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopFive(); });
     }
-
     function loopSix() {
         if (!balloonsFlying) return;
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b6').animate({left: randleft, bottom: randtop}, 10000, function(){ loopSix(); });
+        $('#b6').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopSix(); });
     }
-
     function loopSeven() {
         if (!balloonsFlying) return;
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b7').animate({left: randleft, bottom: randtop}, 10000, function(){ loopSeven(); });
+        $('#b7').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopSeven(); });
     }
 
     $('#balloons_flying').click(function(){
         $('.balloon-border').animate({top: -500}, 8000);
         $('#b1,#b4,#b5,#b7').addClass('balloons-rotate-behaviour-one');
         $('#b2,#b3,#b6').addClass('balloons-rotate-behaviour-two');
-
         balloonsFlying = true;
-
-        loopOne();
-        loopTwo();
-        loopThree();
-        loopFour();
-        loopFive();
-        loopSix();
-        loopSeven();
-
+        loopOne(); loopTwo(); loopThree(); loopFour(); loopFive(); loopSix(); loopSeven();
         $(this).fadeOut('slow').delay(5000).promise().done(function(){
             $('#cake_fadein').fadeIn('slow');
         });
@@ -168,9 +133,11 @@ $(document).ready(function(){
     $('#wish_message').click(function(){
         balloonsFlying = false;
 
+        $('.cake').fadeOut('slow'); // ✅ ADDED — cake hides, no overlap
+
         vw = $(window).width() / 2;
         var spacing = getBalloonSpacing();
-        var bTop = getBalloonTop(); // ✅ FIXED
+        var bTop = getBalloonTop();
 
         $('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop(true, false);
 
@@ -209,7 +176,6 @@ $(document).ready(function(){
         });
 
         var i;
-
         function msgLoop(i) {
             $("p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
                 i = i + 1;
@@ -223,7 +189,6 @@ $(document).ready(function(){
                 }
             });
         }
-
         msgLoop(0);
     });
 });
