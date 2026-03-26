@@ -19,6 +19,7 @@ body {
     -o-transition: background-color 3s ease;
     -ms-transition: background-color 3s ease;
     transition: background-color 3s ease;
+    transition: background 5s ease;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
@@ -789,251 +790,165 @@ audio {
 /* ============================================== 
    CAKE STYLES - Compiled from cake.less
    ============================================== */
+/* ================= NEW CAKE ================= */
 
 .cake {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.75); /* 👈 shrink */
+    transform-origin: center;
     display: none;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 200px;
     z-index: 100;
-    filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.6));
-    transition: filter 0.3s ease;
 }
 
-.cake:hover {
-    filter: drop-shadow(0 20px 45px rgba(74, 63, 53, 0.25));
-}
-
-.cake:after {
-    background: linear-gradient(to bottom, #2c2c2c, #121212);
-    border-radius: 300px;
-    content: "";
+/* plate */
+.plate {
+    width: 270px;
+    height: 110px;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 300px;
-    height: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15), inset 0 -3px 5px rgba(0, 0, 0, 0.1);
+    bottom: -10px;
+    left: -10px;
+    background: #bbb;
+    border-radius: 50%;
+    box-shadow:
+        0 4px 0 #999,
+        0 10px 40px rgba(0,0,0,0.6);
 }
 
-/* ============================================== Candle */
-.velas {
-    background: repeating-linear-gradient(
-        45deg,
-        #FFFFFF,
-        #FFFFFF 5px,
-        #FF5252 5px,
-        #FF5252 10px
-    );
-    border-radius: 4px;
+/* layers */
+.layer {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -7.5px;
-    margin-top: -25px;
-    width: 15px;
-    height: 50px;
-    box-shadow: inset -3px 0 5px rgba(0,0,0,0.15), 2px 2px 5px rgba(0,0,0,0.1);
-}
-
-.velas:after,
-.velas:before {
-    background: rgba(255,0,0,0.4);
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 6.67px;
-}
-
-.velas:after {
-    top: 25%;
-    left: 0;
-}
-
-.velas:before {
-    top: 45%;
-    left: 0;
-}
-
-/* ============================================== Fire */
-.fuego {
-    display: none; /* Keep this if Javascript turns the flame on */
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    box-shadow: 0 0 20px 5px rgba(255, 153, 0, 0.6);
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    margin-left: -10px;
-    width: 20px;
-    height: 37.5px;
-    background: radial-gradient(circle, #fff 0%, #ffcc00 40%, #ff6600 100%);
-    transform-origin: bottom center;
-}
-
-.fuego:nth-child(1) { animation: fuego 1.5s ease-in-out infinite alternate; }
-.fuego:nth-child(2) { animation: fuego 1.2s ease-in-out infinite alternate; }
-.fuego:nth-child(3) { animation: fuego 1.8s ease-in-out infinite alternate; }
-.fuego:nth-child(4) { animation: fuego 1s ease-in-out infinite alternate; }
-.fuego:nth-child(5) { animation: fuego 0.8s ease-in-out infinite alternate; }
-
-/* ============================================== Animation Fire */
-/* Adding vendor prefixes for Safari/Older browsers if needed */
-@-webkit-keyframes fuego {
-    0% { -webkit-transform: scale(0.9) rotate(-2deg); box-shadow: 0 0 15px 5px rgba(255, 153, 0, 0.5); }
-    50% { -webkit-transform: scale(1.1) translateY(-2px); box-shadow: 0 0 25px 8px rgba(255, 100, 0, 0.7); }
-    100% { -webkit-transform: scale(1) rotate(2deg); box-shadow: 0 0 20px 5px rgba(255, 153, 0, 0.6); }
-}
-
-@-moz-keyframes fuego {
-    0% {
-        background: rgba(254,248,97,0.5);
-        -moz-transform: translateY(0) scale(1);
-    }
-    50% {
-        background: rgba(255,50,0,0.1);
-        -moz-transform: translateY(-60px) scale(0);
-    }
-    100% {
-        background: rgba(254,248,97,0.5);
-        -moz-transform: translateY(0) scale(1);
-    }
-}
-
-@-o-keyframes fuego {
-    0% {
-        background: rgba(254,248,97,0.5);
-        -o-transform: translateY(0) scale(1);
-    }
-    50% {
-        background: rgba(255,50,0,0.1);
-        -o-transform: translateY(-60px) scale(0);
-    }
-    100% {
-        background: rgba(254,248,97,0.5);
-        -o-transform: translateY(0) scale(1);
-    }
-}
-
-@-ms-keyframes fuego {
-    0% {
-        background: rgba(254,248,97,0.5);
-        -ms-transform: translateY(0) scale(1);
-    }
-    50% {
-        background: rgba(255,50,0,0.1);
-        -ms-transform: translateY(-60px) scale(0);
-    }
-    100% {
-        background: rgba(254,248,97,0.5);
-        -ms-transform: translateY(0) scale(1);
-    }
-}
-
-/* ============================================== Animation Fire */
-@keyframes fuego {
-    0% {
-        transform: scale(0.9) rotate(-2deg);
-        box-shadow: 0 0 15px 5px rgba(255, 153, 0, 0.5);
-    }
-    50% {
-        transform: scale(1.1) translateY(-2px);
-        box-shadow: 0 0 25px 8px rgba(255, 100, 0, 0.7);
-    }
-    100% {
-        transform: scale(1) rotate(2deg);
-        box-shadow: 0 0 20px 5px rgba(255, 153, 0, 0.6);
-    }
-}
-
-/* ============================================== Frosting */
-.cobertura {
-    background: linear-gradient(
-        to bottom,
-        #4b2a23,
-        #2b140f,
-        #120706
-    );
-    border-radius: 150px 150px 15px 15px;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    margin-left: -83.33px;
-    margin-top: -15px;
-    width: 166.67px;
-    height: 37.5px;
-    z-index: 10;
-    box-shadow: inset -10px 0 20px rgba(0,0,0,0.3), 0 5px 10px rgba(0,0,0,0.2);
-}
-
-.cobertura:after,
-.cobertura:before {
-    background: #5D4037;
-    border-radius: 300px;
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 37.5px;
-    box-shadow: inset -4px 0 5px rgba(0,0,0,0.2);
-}
-
-.cobertura:after {
-    top: 20px;
-    right: 50px;
-}
-
-.cobertura:before {
-    top: 30px;
-    right: 30px;
-    height: 50px;
-}
-
-/* ============================================== BIZCOCHO (Cake Body) */
-.bizcocho {
-    background: linear-gradient(
-        to bottom,
-        #3b1f1a,
-        #2a140f,
-        #140806
-    );
-    position: absolute;
-    bottom: 7.5px;
-    left: 50%;
-    margin-left: -75px;
-    width: 150px;
+    width: 250px;
     height: 100px;
-    border-radius: 10px 10px 0 0;
-    box-shadow: inset -15px 0 20px rgba(0,0,0,0.15);
+    border-radius: 50%;
+    background: #4b2a12;
+
+    box-shadow:
+        0 2px 0 #5a3315,
+        0 4px 0 #3d220f,
+        0 6px 0 #3a200e,
+        0 8px 0 #361e0d,
+        0 10px 0 #321c0c,
+        0 12px 0 #2e1a0b,
+        0 14px 0 #2a170a,
+        0 16px 0 #261509,
+        0 18px 0 #221307,
+        0 20px 0 #1e1106;
 }
 
-.bizcocho:after,
-.bizcocho:before {
-    background: #FFFDE7;
+.layer-top { top: 0; }
+.layer-middle { top: 33px; }
+.layer-bottom { top: 66px; }
+
+/* icing */
+.icing {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 240px;
+    height: 90px;
+    border-radius: 50%;
+    background: #f0e4d0;
+}
+
+.icing:before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 12px;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.05);
+    top: 4px;
+    left: 5px;
+    right: 5px;
+    bottom: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    filter: blur(2px);
 }
 
-.bizcocho:after {
-    top: 30%;
+/* drips */
+.drip {
+    position: absolute;
+    background: #f0e4d0;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.drip1 {
+    width: 40px;
+    height: 50px;
+    top: 55px;
+    left: 5px;
+}
+
+.drip2 {
+    width: 50px;
+    height: 60px;
+    top: 70px;
+    left: 180px;
+}
+
+.drip3 {
+    width: 80px;
+    height: 50px;
+    top: 55px;
+    left: 90px;
+    border-radius: 40px;
+}
+
+/* candle */
+.candle {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #7B020B;
+    width: 16px;
+    height: 50px;
+    border-radius: 8px / 4px;
+    z-index: 200;
+}
+
+.candle:before {
+    content: "";
+    position: absolute;
+    top: 0;
     left: 0;
+    width: 16px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #a30310;
 }
 
-.bizcocho:before {
-    top: 60%;
-    left: 0;
+/* flame */
+.flame {
+    display: none;
+    position: absolute;
+    background-color: orange;
+    width: 15px;
+    height: 35px;
+    border-radius: 10px 10px 10px 10px / 25px 25px 10px 10px;
+    top: -34px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 300;
+
+    box-shadow:
+        0 0 10px rgba(255,165,0,0.5),
+        0 0 20px rgba(255,165,0,0.5),
+        0 0 60px rgba(255,165,0,0.5),
+        0 0 80px rgba(255,165,0,0.5);
+
+    transform-origin: 50% 90%;
+    animation: flicker 1s ease-in-out alternate infinite;
 }
 
-.cake {
-    transition: transform 0.3s ease;
-}
-
-.cake:hover {
-    transform: translate(-50%, -52%) scale(1.02);
+@keyframes flicker {
+    0% { transform: translateX(-50%) skewX(5deg); }
+    25% { transform: translateX(-50%) skewX(-5deg); }
+    50% { transform: translateX(-50%) skewX(10deg); }
+    75% { transform: translateX(-50%) skewX(-10deg); }
+    100% { transform: translateX(-50%) skewX(5deg); }
 }
 
 /* ===========================
@@ -1170,8 +1085,7 @@ audio {
 
 	/* 🍰 CAKE RESPONSIVE - Mobile */
 	.cake {
-		width: 200px;
-		height: 200px;
+        transform: translate(-50%, -50%) scale(0.6);
 	}
 
 }
@@ -1200,8 +1114,7 @@ audio {
 
 	/* 🍰 CAKE RESPONSIVE - Tablet */
 	.cake {
-		width: 250px;
-		height: 250px;
+        transform: translate(-50%, -50%) scale(0.55);
 	}
 
     .control-panel {
@@ -1227,8 +1140,7 @@ audio {
 
 	/* 🍰 CAKE RESPONSIVE - Desktop */
 	.cake {
-		width: 300px;
-		height: 300px;
+        transform: translate(-50%, -50%) scale(0.7);
         margin: 0 auto;
 	}
 
@@ -1246,4 +1158,40 @@ audio {
     .message {
         top: 500px;
     }
+}
+
+.memory {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    display: none;
+    z-index: 2000;
+    text-align: center;
+}
+
+.memory img {
+    max-width: 90vw;
+    max-height: 60vh;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    transition: all 0.5s ease;
+}
+
+.memory-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 3000;
+}
+
+.memory-video video {
+    width: 95vw;
+    height: 80vh;       /* FORCE height */
+    object-fit: contain; /* keep full video visible */
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
