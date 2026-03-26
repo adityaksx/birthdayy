@@ -793,8 +793,8 @@ audio {
     position: fixed;
     display: none;
     left: 50%;
-    top: 50%;
-    margin-left: -150px;
+    top: 530px;
+    margin-left: 0;
     margin-top: -150px;
     width: 300px;
     height: 300px;
@@ -1185,7 +1185,8 @@ audio {
 		width: 200px;
 		height: 200px;
 		margin-left: -100px;
-		margin-top: -100px;
+		top: 380px;
+        margin-top: 0;
 	}
 
 
@@ -1221,7 +1222,8 @@ audio {
 		width: 250px;
 		height: 250px;
 		margin-left: -125px;
-		margin-top: -125px;
+        top: 460px;
+		margin-top: 0px;
 	}
 
     .control-panel {
