@@ -31,19 +31,20 @@ $(document).ready(function(){
 
     // Position balloons on resize
     $(window).resize(function(){
-        if (balloonsFlying) return; // Don't reposition while flying
+        if (balloonsFlying) return;
 
         vw = $(window).width() / 2;
         var spacing = getBalloonSpacing();
+        var bTop = Math.round($(window).height() * 0.08); // ✅ same dynamic value
 
-        $('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
-        $('#b11').animate({top: 240, left: vw - spacing.s1}, 500);
-        $('#b22').animate({top: 240, left: vw - spacing.s2}, 500);
-        $('#b33').animate({top: 240, left: vw - spacing.s3}, 500);
-        $('#b44').animate({top: 240, left: vw - spacing.s4}, 500);
-        $('#b55').animate({top: 240, left: vw + spacing.s5}, 500);
-        $('#b66').animate({top: 240, left: vw + spacing.s6}, 500);
-        $('#b77').animate({top: 240, left: vw + spacing.s7}, 500);
+        $('#b1,#b4,#b5,#b7').stop();
+        $('#b11').animate({top: bTop, left: vw - spacing.s1}, 500);
+        $('#b22').animate({top: bTop, left: vw - spacing.s2}, 500);
+        $('#b33').animate({top: bTop, left: vw - spacing.s3}, 500);
+        $('#b44').animate({top: bTop, left: vw - spacing.s4}, 500);
+        $('#b55').animate({top: bTop, left: vw + spacing.s5}, 500);
+        $('#b66').animate({top: bTop, left: vw + spacing.s6}, 500);
+        $('#b77').animate({top: bTop, left: vw + spacing.s7}, 500);
     });
 
     $('#turn_on').click(function(){
@@ -181,15 +182,16 @@ $(document).ready(function(){
     });
 
     $('#wish_message').click(function(){
-        // Stop flying
         balloonsFlying = false;
 
         vw = $(window).width() / 2;
         var spacing = getBalloonSpacing();
+        
+        // ✅ Dynamic top — stays above the cake on all screen sizes
+        var bTop = Math.round($(window).height() * 0.08);
 
         $('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop(true, false);
 
-        // Change IDs
         $('#b1').attr('id','b11');
         $('#b2').attr('id','b22');
         $('#b3').attr('id','b33');
@@ -198,19 +200,18 @@ $(document).ready(function(){
         $('#b6').attr('id','b66');
         $('#b7').attr('id','b77');
 
-        // Remove rotation classes and reset rotation
         $('.balloons')
             .removeClass('balloons-rotate-behaviour-one balloons-rotate-behaviour-two')
             .css('transform', 'rotate(0deg)');
 
-        // Align balloons with responsive spacing
-        $('#b11').animate({top: 240, left: vw - spacing.s1}, 500);
-        $('#b22').animate({top: 240, left: vw - spacing.s2}, 500);
-        $('#b33').animate({top: 240, left: vw - spacing.s3}, 500);
-        $('#b44').animate({top: 240, left: vw - spacing.s4}, 500);
-        $('#b55').animate({top: 240, left: vw + spacing.s5}, 500);
-        $('#b66').animate({top: 240, left: vw + spacing.s6}, 500);
-        $('#b77').animate({top: 240, left: vw + spacing.s7}, 500);
+        // ✅ Use bTop instead of hardcoded 240
+        $('#b11').animate({top: bTop, left: vw - spacing.s1}, 500);
+        $('#b22').animate({top: bTop, left: vw - spacing.s2}, 500);
+        $('#b33').animate({top: bTop, left: vw - spacing.s3}, 500);
+        $('#b44').animate({top: bTop, left: vw - spacing.s4}, 500);
+        $('#b55').animate({top: bTop, left: vw + spacing.s5}, 500);
+        $('#b66').animate({top: bTop, left: vw + spacing.s6}, 500);
+        $('#b77').animate({top: bTop, left: vw + spacing.s7}, 500);
 
         $('.balloons').css('opacity','0.9');
         $('.balloons h2').fadeIn(3000);
