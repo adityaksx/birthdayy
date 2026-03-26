@@ -12,7 +12,8 @@ body::before {
 }
 
 body {
-    background-color: #31363F; /* Dark on load */
+    background-color: #2C3E50; /* Dark on load */
+    height: 100vh;
     -webkit-transition: background-color 3s ease;
     -moz-transition: background-color 3s ease;
     -o-transition: background-color 3s ease;
@@ -660,7 +661,7 @@ audio {
     width: 140px;
     height: 256px;
     background-repeat: no-repeat;
-    background-size: 140px 256 px;
+    background-size: 140px 256px;
     filter: drop-shadow(0 8px 20px rgba(74, 63, 53, 0.1));
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -791,14 +792,14 @@ audio {
 
 .cake {
     position: fixed;
-    display: none;
-    left: 50%;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
+    display: none;
     width: 300px;
     height: 300px;
     z-index: 100;
-    filter: drop-shadow(0 15px 35px rgba(74, 63, 53, 0.15));
+    filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.6));
     transition: filter 0.3s ease;
 }
 
@@ -807,20 +808,27 @@ audio {
 }
 
 .cake:after {
-    background: rgba(255,255,255,1);
+    background: linear-gradient(to bottom, #2c2c2c, #121212);
     border-radius: 300px;
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 300px;
-    height: 6px;
+    height: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15), inset 0 -3px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================================== Candle */
 .velas {
-    background: rgba(255,255,255,1);
-    border-radius: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        #FFFFFF,
+        #FFFFFF 5px,
+        #FF5252 5px,
+        #FF5252 10px
+    );
+    border-radius: 4px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -828,6 +836,7 @@ audio {
     margin-top: -25px;
     width: 15px;
     height: 50px;
+    box-shadow: inset -3px 0 5px rgba(0,0,0,0.15), 2px 2px 5px rgba(0,0,0,0.1);
 }
 
 .velas:after,
@@ -851,71 +860,31 @@ audio {
 
 /* ============================================== Fire */
 .fuego {
-    display: none;
-    border-radius: 100%;
-    box-shadow: 0 0 40px 10px rgba(248,233,209,0.2);
+    display: none; /* Keep this if Javascript turns the flame on */
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 0 20px 5px rgba(255, 153, 0, 0.6);
     position: absolute;
-    top: -12px;
+    top: -15px;
     left: 50%;
     margin-left: -10px;
     width: 20px;
     height: 37.5px;
+    background: radial-gradient(circle, #fff 0%, #ffcc00 40%, #ff6600 100%);
+    transform-origin: bottom center;
 }
 
-.fuego:nth-child(1) {
-    -webkit-animation: fuego 2s infinite;
-    -moz-animation: fuego 2s infinite;
-    -o-animation: fuego 2s infinite;
-    -ms-animation: fuego 2s infinite;
-    animation: fuego 2s infinite;
-}
-
-.fuego:nth-child(2) {
-    -webkit-animation: fuego 1.5s infinite;
-    -moz-animation: fuego 1.5s infinite;
-    -o-animation: fuego 1.5s infinite;
-    -ms-animation: fuego 1.5s infinite;
-    animation: fuego 1.5s infinite;
-}
-
-.fuego:nth-child(3) {
-    -webkit-animation: fuego 1s infinite;
-    -moz-animation: fuego 1s infinite;
-    -o-animation: fuego 1s infinite;
-    -ms-animation: fuego 1s infinite;
-    animation: fuego 1s infinite;
-}
-
-.fuego:nth-child(4) {
-    -webkit-animation: fuego 0.5s infinite;
-    -moz-animation: fuego 0.5s infinite;
-    -o-animation: fuego 0.5s infinite;
-    -ms-animation: fuego 0.5s infinite;
-    animation: fuego 0.5s infinite;
-}
-
-.fuego:nth-child(5) {
-    -webkit-animation: fuego 0.2s infinite;
-    -moz-animation: fuego 0.2s infinite;
-    -o-animation: fuego 0.2s infinite;
-    -ms-animation: fuego 0.2s infinite;
-    animation: fuego 0.2s infinite;
-}
+.fuego:nth-child(1) { animation: fuego 1.5s ease-in-out infinite alternate; }
+.fuego:nth-child(2) { animation: fuego 1.2s ease-in-out infinite alternate; }
+.fuego:nth-child(3) { animation: fuego 1.8s ease-in-out infinite alternate; }
+.fuego:nth-child(4) { animation: fuego 1s ease-in-out infinite alternate; }
+.fuego:nth-child(5) { animation: fuego 0.8s ease-in-out infinite alternate; }
 
 /* ============================================== Animation Fire */
+/* Adding vendor prefixes for Safari/Older browsers if needed */
 @-webkit-keyframes fuego {
-    0% {
-        background: rgba(254,248,97,0.5);
-        -webkit-transform: translateY(0) scale(1);
-    }
-    50% {
-        background: rgba(255,50,0,0.1);
-        -webkit-transform: translateY(-60px) scale(0);
-    }
-    100% {
-        background: rgba(254,248,97,0.5);
-        -webkit-transform: translateY(0) scale(1);
-    }
+    0% { -webkit-transform: scale(0.9) rotate(-2deg); box-shadow: 0 0 15px 5px rgba(255, 153, 0, 0.5); }
+    50% { -webkit-transform: scale(1.1) translateY(-2px); box-shadow: 0 0 25px 8px rgba(255, 100, 0, 0.7); }
+    100% { -webkit-transform: scale(1) rotate(2deg); box-shadow: 0 0 20px 5px rgba(255, 153, 0, 0.6); }
 }
 
 @-moz-keyframes fuego {
@@ -963,25 +932,31 @@ audio {
     }
 }
 
+/* ============================================== Animation Fire */
 @keyframes fuego {
     0% {
-        background: rgba(254,248,97,0.5);
-        transform: translateY(0) scale(1);
+        transform: scale(0.9) rotate(-2deg);
+        box-shadow: 0 0 15px 5px rgba(255, 153, 0, 0.5);
     }
     50% {
-        background: rgba(255,50,0,0.1);
-        transform: translateY(-60px) scale(0);
+        transform: scale(1.1) translateY(-2px);
+        box-shadow: 0 0 25px 8px rgba(255, 100, 0, 0.7);
     }
     100% {
-        background: rgba(254,248,97,0.5);
-        transform: translateY(0) scale(1);
+        transform: scale(1) rotate(2deg);
+        box-shadow: 0 0 20px 5px rgba(255, 153, 0, 0.6);
     }
 }
 
 /* ============================================== Frosting */
 .cobertura {
-    background: rgba(236,231,227,1);
-    border-radius: 150px;
+    background: linear-gradient(
+        to bottom,
+        #4b2a23,
+        #2b140f,
+        #120706
+    );
+    border-radius: 150px 150px 15px 15px;
     position: absolute;
     top: 60%;
     left: 50%;
@@ -990,46 +965,57 @@ audio {
     width: 166.67px;
     height: 37.5px;
     z-index: 10;
+    box-shadow: inset -10px 0 20px rgba(0,0,0,0.3), 0 5px 10px rgba(0,0,0,0.2);
 }
 
 .cobertura:after,
 .cobertura:before {
-    background: rgba(236,231,227,1);
+    background: #5D4037;
     border-radius: 300px;
     content: "";
     position: absolute;
-    width: 15px;
-    height: 30px;
+    width: 20px;
+    height: 37.5px;
+    box-shadow: inset -4px 0 5px rgba(0,0,0,0.2);
 }
 
 .cobertura:after {
     top: 20px;
-    right: 42.86px;
+    right: 50px;
 }
 
 .cobertura:before {
     top: 30px;
-    right: 27.27px;
+    right: 30px;
+    height: 50px;
 }
 
 /* ============================================== BIZCOCHO (Cake Body) */
 .bizcocho {
-    background: rgba(109,56,38,1);
+    background: linear-gradient(
+        to bottom,
+        #3b1f1a,
+        #2a140f,
+        #140806
+    );
     position: absolute;
-    bottom: 0;
+    bottom: 7.5px;
     left: 50%;
     margin-left: -75px;
     width: 150px;
     height: 100px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: inset -15px 0 20px rgba(0,0,0,0.15);
 }
 
 .bizcocho:after,
 .bizcocho:before {
-    background: rgba(236,231,227,0.6);
+    background: #FFFDE7;
     content: "";
     position: absolute;
     width: 100%;
-    height: 15px;
+    height: 12px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.05);
 }
 
 .bizcocho:after {
@@ -1040,6 +1026,14 @@ audio {
 .bizcocho:before {
     top: 60%;
     left: 0;
+}
+
+.cake {
+    transition: transform 0.3s ease;
+}
+
+.cake:hover {
+    transform: translate(-50%, -52%) scale(1.02);
 }
 
 /* ===========================
@@ -1063,19 +1057,16 @@ audio {
     display: none;
 }
 
-.cake-cover {
-    margin-top: 50px;
-}
-
 .message {
     display: none;
     text-align: center;
     position: fixed;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     width: 90%;
     max-width: 800px;
+    text-align: center;
+    z-index: 2000;
 	background: none;
 }
 
@@ -1147,15 +1138,13 @@ audio {
     }
 
     .message {
-        margin-top: 100px;
-        padding: 25px 20px;
-        border-radius: 15px;
+        top: 450px; /* or 600px if you want more spacing */
     }
 
     .message p {
-        font-size: 20 px;
+        font-size: 20px;
 		line-height: 1.5;
-        letter-spacing: 0.4 px;
+        letter-spacing: 0.4px;
         line-height: 1.4;
     }
 
@@ -1183,15 +1172,8 @@ audio {
 	.cake {
 		width: 200px;
 		height: 200px;
-		margin-left: -100px;
-		top: 50%;
-        margin-top: -100px;
 	}
 
-
-    .cake-cover {
-        margin-top: 20px;
-    }
 }
 
 /* Tablet - 768px to 1199px */
@@ -1208,7 +1190,7 @@ audio {
     }
 
     .message p {
-        font-size: 26 px;
+        font-size: 26px;
 		line-height: 1.5;
     }
 
@@ -1220,18 +1202,14 @@ audio {
 	.cake {
 		width: 250px;
 		height: 250px;
-		margin-left: -125px;
-        top: 50%;
-		margin-top: -125px;
 	}
 
     .control-panel {
         bottom: 70px !important;
     }
 
-
-    .cake-cover {
-        margin-top: 30px;
+    .message {
+        top: 500px;
     }
 }
 
@@ -1251,16 +1229,21 @@ audio {
 	.cake {
 		width: 300px;
 		height: 300px;
-		margin-left: -150px;
-		margin-top: -150px;
-        top: 50% ;
+        margin: 0 auto;
 	}
 
     .cake-cover {
-        margin-top: 50px;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 	.control-panel {
         bottom: 80px !important;
+    }
+
+    .message {
+        top: 500px;
     }
 }
