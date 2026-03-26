@@ -76,33 +76,19 @@ $(document).ready(function(){
         });
     });
 
-    function loopOne() {
+    function floatBalloon(id) {
         if (!balloonsFlying) return;
-        $('#b1').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopOne(); });
-    }
-    function loopTwo() {
-        if (!balloonsFlying) return;
-        $('#b2').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopTwo(); });
-    }
-    function loopThree() {
-        if (!balloonsFlying) return;
-        $('#b3').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopThree(); });
-    }
-    function loopFour() {
-        if (!balloonsFlying) return;
-        $('#b4').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopFour(); });
-    }
-    function loopFive() {
-        if (!balloonsFlying) return;
-        $('#b5').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopFive(); });
-    }
-    function loopSix() {
-        if (!balloonsFlying) return;
-        $('#b6').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopSix(); });
-    }
-    function loopSeven() {
-        if (!balloonsFlying) return;
-        $('#b7').animate({left: 1000*Math.random(), bottom: 500*Math.random()}, 10000, function(){ loopSeven(); });
+
+        let randomLeft = Math.random() * $(window).width();
+
+        $(id)
+        .css({ bottom: -200 }) // start from bottom
+        .animate({
+            bottom: $(window).height() + 200, // go above screen
+            left: randomLeft
+        }, 5000 + Math.random()*3000, 'linear', function () {
+            floatBalloon(id); // loop
+        });
     }
 
     $('#balloons_flying').click(function(){
@@ -110,13 +96,20 @@ $(document).ready(function(){
         $('#b1,#b4,#b5,#b7').addClass('balloons-rotate-behaviour-one');
         $('#b2,#b3,#b6').addClass('balloons-rotate-behaviour-two');
         balloonsFlying = true;
-        loopOne(); loopTwo(); loopThree(); loopFour(); loopFive(); loopSix(); loopSeven();
+        floatBalloon('#b1');
+        floatBalloon('#b2');
+        floatBalloon('#b3');
+        floatBalloon('#b4');
+        floatBalloon('#b5');
+        floatBalloon('#b6');
+        floatBalloon('#b7');
         $(this).fadeOut('slow').delay(5000).promise().done(function(){
             $('#cake_fadein').fadeIn('slow');
         });
     });
 
     $('#cake_fadein').click(function(){
+        balloonsFlying = false; // stop balloons
         $('.cake').fadeIn('slow');
         $(this).fadeOut('slow').delay(3000).promise().done(function(){
             $('#light_candle').fadeIn('slow');
